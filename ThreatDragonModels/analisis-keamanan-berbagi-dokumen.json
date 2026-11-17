@@ -1,0 +1,446 @@
+{
+  "version": "2.6.2",
+  "summary": {
+    "title": "Threat Modeling - Sistem Berbagi Dokumen",
+    "owner": "Hilwa Aulia Najaaha",
+    "description": "Threat model STRIDE untuk sistem berbagi dokumen melalui tautan sementara yang berlaku 24 jam dan dapat dicabut oleh pemilik."
+  },
+  "detail": {
+    "reviewer": "Dosen",
+    "contributors": [
+      {
+        "name": "Hilwa Aulia Najaaha"
+      }
+    ],
+    "diagramTop": 1,
+    "threatTop": 12,
+    "diagrams": [
+      {
+        "title": "DFD Sistem Berbagi Dokumen",
+        "description": "DFD menunjukkan aktor, proses aplikasi, penyimpanan metadata dan file, serta aliran data pada sistem berbagi dokumen.",
+        "diagramType": "STRIDE",
+        "id": 0,
+        "version": "2.6.2",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "cells": [
+          {
+            "id": "124ed2fb-5f86-4094-83c3-4aae583ea440",
+            "shape": "actor",
+            "zIndex": 1,
+            "position": {
+              "x": 80,
+              "y": 170
+            },
+            "size": {
+              "width": 160,
+              "height": 70
+            },
+            "visible": true,
+            "data": {
+              "name": "Pemilik Dokumen",
+              "type": "actor",
+              "description": "Pengguna terdaftar yang mengunggah file, membuat tautan berbagi, dan mencabut tautan.",
+              "hasOpenThreats": true,
+              "providesAuthentication": true
+            },
+            "threats": [
+              {
+                "title": "Pemalsuan identitas pemilik dokumen",
+                "type": "Spoofing",
+                "modelType": "STRIDE",
+                "status": "Open",
+                "severity": "High",
+                "number": 1,
+                "threatId": "9235a3fe-a853-4031-97ac-98009e749515",
+                "description": "Penyerang menggunakan akun atau sesi pemilik yang dicuri untuk mengunggah dokumen atau membuat tautan berbagi.",
+                "mitigation": "Terapkan MFA, cookie Secure/HttpOnly/SameSite, masa berlaku sesi, dan deteksi login mencurigakan."
+              },
+              {
+                "title": "Penyalahgunaan hak akses pemilik",
+                "type": "Elevation of Privilege",
+                "modelType": "STRIDE",
+                "status": "Open",
+                "severity": "Medium",
+                "number": 2,
+                "threatId": "7d35505f-21b1-4651-a168-10bed6e70424",
+                "description": "Pengguna mencoba mengakses fungsi pengelolaan dokumen di luar hak akses akunnya.",
+                "mitigation": "Terapkan pemeriksaan otorisasi pada setiap permintaan dan prinsip least privilege."
+              }
+            ]
+          },
+          {
+            "id": "f46da8db-f5f2-44c5-a2fa-f3248633da90",
+            "shape": "actor",
+            "zIndex": 2,
+            "position": {
+              "x": 80,
+              "y": 430
+            },
+            "size": {
+              "width": 160,
+              "height": 70
+            },
+            "visible": true,
+            "data": {
+              "name": "Penerima Eksternal",
+              "type": "actor",
+              "description": "Penerima membuka tautan sementara melalui browser; tidak wajib memiliki akun.",
+              "hasOpenThreats": true
+            },
+            "threats": [
+              {
+                "title": "Penerima membuka tautan yang dibagikan tanpa verifikasi",
+                "type": "Information Disclosure",
+                "modelType": "STRIDE",
+                "status": "Open",
+                "severity": "High",
+                "number": 3,
+                "threatId": "66055a14-b741-4c79-a277-eb83ffe4525d",
+                "description": "Tautan yang bocor dapat digunakan pihak lain untuk membaca dokumen selama tautan masih aktif.",
+                "mitigation": "Gunakan token acak yang kuat, opsi kata sandi atau pembatasan penerima, serta pencabutan tautan."
+              }
+            ]
+          },
+          {
+            "id": "e3b5b5d4-4037-4057-8806-874e5fc32e4f",
+            "shape": "actor",
+            "zIndex": 3,
+            "position": {
+              "x": 80,
+              "y": 690
+            },
+            "size": {
+              "width": 160,
+              "height": 70
+            },
+            "visible": true,
+            "data": {
+              "name": "Admin Organisasi",
+              "type": "actor",
+              "description": "Petugas yang mengelola konfigurasi, akun, dan pemantauan sistem.",
+              "hasOpenThreats": true,
+              "providesAuthentication": true
+            },
+            "threats": [
+              {
+                "title": "Penyalahgunaan akun administrator",
+                "type": "Spoofing",
+                "modelType": "STRIDE",
+                "status": "Open",
+                "severity": "High",
+                "number": 4,
+                "threatId": "9e96c2ff-3866-497f-b4d7-a05d671f1c58",
+                "description": "Penyerang mengambil alih akun administrator untuk mengubah konfigurasi atau mengakses dokumen.",
+                "mitigation": "Terapkan MFA, pemisahan tugas, pencatatan aktivitas admin, dan pembatasan akses administratif."
+              }
+            ]
+          },
+          {
+            "id": "b53aa48f-923a-4c3e-aafa-be42c9608414",
+            "shape": "process",
+            "zIndex": 4,
+            "position": {
+              "x": 390,
+              "y": 300
+            },
+            "size": {
+              "width": 210,
+              "height": 100
+            },
+            "visible": true,
+            "data": {
+              "name": "Web Application",
+              "type": "process",
+              "description": "Memproses autentikasi, unggah dokumen, pembuatan tautan, validasi token, unduh, dan pencabutan tautan.",
+              "hasOpenThreats": true
+            },
+            "threats": [
+              {
+                "title": "Manipulasi permintaan berbagi dokumen",
+                "type": "Tampering",
+                "modelType": "STRIDE",
+                "status": "Open",
+                "severity": "High",
+                "number": 5,
+                "threatId": "7e9d29bf-6c21-4549-b240-39bd0ff48907",
+                "description": "Penyerang mengubah parameter permintaan untuk mengganti pemilik, dokumen, atau masa berlaku tautan.",
+                "mitigation": "Validasi seluruh input di sisi server, gunakan parameterized query, dan verifikasi kepemilikan dokumen."
+              },
+              {
+                "title": "Kebocoran informasi melalui pesan kesalahan",
+                "type": "Information Disclosure",
+                "modelType": "STRIDE",
+                "status": "Open",
+                "severity": "Medium",
+                "number": 6,
+                "threatId": "7f16e70c-ba0e-40eb-8da7-594494706186",
+                "description": "Pesan kesalahan yang terlalu rinci dapat mengungkap struktur aplikasi atau informasi internal.",
+                "mitigation": "Tampilkan pesan umum kepada pengguna dan simpan detail kesalahan hanya pada log internal."
+              },
+              {
+                "title": "Pengunggahan file berbahaya",
+                "type": "Tampering",
+                "modelType": "STRIDE",
+                "status": "Open",
+                "severity": "High",
+                "number": 7,
+                "threatId": "df56ec09-47e3-4d19-b7b6-a295a43079a9",
+                "description": "Penyerang mengunggah file berisi malware atau konten yang dapat membahayakan penerima.",
+                "mitigation": "Batasi ekstensi dan ukuran, validasi MIME dan signature file, lakukan pemindaian malware, serta simpan file di lokasi non-eksekusi."
+              },
+              {
+                "title": "Penyalahgunaan layanan berbagi dokumen",
+                "type": "Denial of Service",
+                "modelType": "STRIDE",
+                "status": "Open",
+                "severity": "Medium",
+                "number": 8,
+                "threatId": "d0586a19-9db3-4605-96ca-8fc8aa983f1f",
+                "description": "Permintaan unggah atau unduh berlebihan dapat menghabiskan sumber daya aplikasi.",
+                "mitigation": "Terapkan rate limiting, batas ukuran file, kuota pengguna, dan pemantauan penggunaan sumber daya."
+              }
+            ]
+          },
+          {
+            "id": "d076bd53-06b4-4893-be46-776df8059b6a",
+            "shape": "store",
+            "zIndex": 5,
+            "position": {
+              "x": 760,
+              "y": 180
+            },
+            "size": {
+              "width": 190,
+              "height": 90
+            },
+            "visible": true,
+            "data": {
+              "name": "Database",
+              "type": "store",
+              "description": "Menyimpan akun pengguna, metadata dokumen, hash/token tautan, waktu kedaluwarsa, dan status pencabutan.",
+              "hasOpenThreats": true
+            },
+            "threats": [
+              {
+                "title": "Perubahan metadata dokumen tanpa izin",
+                "type": "Tampering",
+                "modelType": "STRIDE",
+                "status": "Open",
+                "severity": "High",
+                "number": 9,
+                "threatId": "430079fc-797d-4945-8787-bfa2124fd892",
+                "description": "Penyerang memodifikasi metadata, pemilik, atau token tautan pada basis data.",
+                "mitigation": "Gunakan kontrol akses basis data, prepared statement, validasi otorisasi, dan audit perubahan."
+              },
+              {
+                "title": "Akses tidak sah ke metadata atau token",
+                "type": "Information Disclosure",
+                "modelType": "STRIDE",
+                "status": "Open",
+                "severity": "High",
+                "number": 10,
+                "threatId": "b6b861b1-cb25-49aa-9f97-07de20656990",
+                "description": "Kebocoran basis data dapat mengungkap metadata dokumen atau token berbagi.",
+                "mitigation": "Enkripsi data sensitif, hash token bila sesuai, batasi hak akses basis data, dan lakukan backup aman."
+              }
+            ]
+          },
+          {
+            "id": "07fff350-cf03-4b39-b073-00ed85376003",
+            "shape": "store",
+            "zIndex": 6,
+            "position": {
+              "x": 760,
+              "y": 470
+            },
+            "size": {
+              "width": 190,
+              "height": 90
+            },
+            "visible": true,
+            "data": {
+              "name": "File Storage",
+              "type": "store",
+              "description": "Menyimpan konten file dokumen secara terpisah dari metadata.",
+              "hasOpenThreats": true
+            },
+            "threats": [
+              {
+                "title": "Pengungkapan file dari penyimpanan",
+                "type": "Information Disclosure",
+                "modelType": "STRIDE",
+                "status": "Open",
+                "severity": "High",
+                "number": 11,
+                "threatId": "8579aae3-1796-48dc-9e2b-46f4febf7882",
+                "description": "File dapat diakses langsung apabila direktori penyimpanan terekspos ke publik.",
+                "mitigation": "Simpan file di private storage di luar web root dan layani unduhan melalui pemeriksaan otorisasi."
+              },
+              {
+                "title": "Penghapusan atau perubahan file",
+                "type": "Tampering",
+                "modelType": "STRIDE",
+                "status": "Open",
+                "severity": "Medium",
+                "number": 12,
+                "threatId": "cee69b05-64df-4ca1-abc3-382efe605c59",
+                "description": "File dapat diubah atau dihapus oleh pihak yang memperoleh akses penyimpanan.",
+                "mitigation": "Terapkan pembatasan izin, checksum/integrity monitoring, versioning, dan backup berkala."
+              }
+            ]
+          },
+          {
+            "id": "81888ef2-2604-4726-9608-a162d789cdad",
+            "shape": "flow",
+            "zIndex": 7,
+            "source": {
+              "id": "124ed2fb-5f86-4094-83c3-4aae583ea440"
+            },
+            "target": {
+              "id": "b53aa48f-923a-4c3e-aafa-be42c9608414"
+            },
+            "vertices": [],
+            "connector": {
+              "name": "normal"
+            },
+            "router": {
+              "name": "normal"
+            },
+            "labels": [],
+            "data": {
+              "name": "Unggah dokumen",
+              "type": "flow",
+              "description": "Pemilik mengirim file dan metadata ke aplikasi."
+            },
+            "threats": []
+          },
+          {
+            "id": "20fd1fa8-600d-4669-a057-86630b328f10",
+            "shape": "flow",
+            "zIndex": 8,
+            "source": {
+              "id": "124ed2fb-5f86-4094-83c3-4aae583ea440"
+            },
+            "target": {
+              "id": "b53aa48f-923a-4c3e-aafa-be42c9608414"
+            },
+            "vertices": [],
+            "connector": {
+              "name": "normal"
+            },
+            "router": {
+              "name": "normal"
+            },
+            "labels": [],
+            "data": {
+              "name": "Buat atau cabut tautan",
+              "type": "flow",
+              "description": "Pemilik meminta aplikasi membuat atau mencabut tautan sementara."
+            },
+            "threats": []
+          },
+          {
+            "id": "bc691eaa-0042-44cc-b826-246462c68342",
+            "shape": "flow",
+            "zIndex": 9,
+            "source": {
+              "id": "f46da8db-f5f2-44c5-a2fa-f3248633da90"
+            },
+            "target": {
+              "id": "b53aa48f-923a-4c3e-aafa-be42c9608414"
+            },
+            "vertices": [],
+            "connector": {
+              "name": "normal"
+            },
+            "router": {
+              "name": "normal"
+            },
+            "labels": [],
+            "data": {
+              "name": "Buka tautan dan unduh",
+              "type": "flow",
+              "description": "Penerima mengirim token tautan untuk validasi dan meminta file."
+            },
+            "threats": []
+          },
+          {
+            "id": "f81b9062-97cb-40ee-8ff1-3f9ee302e201",
+            "shape": "flow",
+            "zIndex": 10,
+            "source": {
+              "id": "e3b5b5d4-4037-4057-8806-874e5fc32e4f"
+            },
+            "target": {
+              "id": "b53aa48f-923a-4c3e-aafa-be42c9608414"
+            },
+            "vertices": [],
+            "connector": {
+              "name": "normal"
+            },
+            "router": {
+              "name": "normal"
+            },
+            "labels": [],
+            "data": {
+              "name": "Kelola sistem",
+              "type": "flow",
+              "description": "Admin mengelola akun, konfigurasi, dan pemantauan."
+            },
+            "threats": []
+          },
+          {
+            "id": "3113bf94-69bb-48c0-919e-d00c3633f081",
+            "shape": "flow",
+            "zIndex": 11,
+            "source": {
+              "id": "b53aa48f-923a-4c3e-aafa-be42c9608414"
+            },
+            "target": {
+              "id": "d076bd53-06b4-4893-be46-776df8059b6a"
+            },
+            "vertices": [],
+            "connector": {
+              "name": "normal"
+            },
+            "router": {
+              "name": "normal"
+            },
+            "labels": [],
+            "data": {
+              "name": "Simpan dan baca metadata",
+              "type": "flow",
+              "description": "Aplikasi menyimpan atau membaca metadata, token, dan masa berlaku."
+            },
+            "threats": []
+          },
+          {
+            "id": "eab72bcb-27bf-49be-8660-87dac0fd5035",
+            "shape": "flow",
+            "zIndex": 12,
+            "source": {
+              "id": "b53aa48f-923a-4c3e-aafa-be42c9608414"
+            },
+            "target": {
+              "id": "07fff350-cf03-4b39-b073-00ed85376003"
+            },
+            "vertices": [],
+            "connector": {
+              "name": "normal"
+            },
+            "router": {
+              "name": "normal"
+            },
+            "labels": [],
+            "data": {
+              "name": "Simpan dan ambil file",
+              "type": "flow",
+              "description": "Aplikasi menyimpan atau mengambil konten dokumen."
+            },
+            "threats": []
+          }
+        ]
+      }
+    ]
+  }
+}
