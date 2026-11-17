@@ -1250,13 +1250,6 @@
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           },
           {
@@ -1784,7 +1777,7 @@
               },
               {
                 "x": -1270,
-                "y": 520
+                "y": 490
               }
             ]
           }
