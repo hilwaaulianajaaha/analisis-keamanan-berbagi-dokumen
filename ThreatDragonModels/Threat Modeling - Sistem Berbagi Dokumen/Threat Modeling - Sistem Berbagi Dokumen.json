@@ -21,8 +21,8 @@
         "cells": [
           {
             "position": {
-              "x": -2190,
-              "y": 170
+              "x": -2196.25,
+              "y": 20
             },
             "size": {
               "width": 160,
@@ -256,7 +256,7 @@
           },
           {
             "position": {
-              "x": -2201.25,
+              "x": -2311.25,
               "y": 610
             },
             "size": {
@@ -1297,100 +1297,6 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "\tPermintaan akses",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "\tPermintaan akses"
-            ],
-            "id": "0d880cbb-83de-4f27-ba24-2332fa5213d5",
-            "source": {
-              "cell": "8b653187-9cf1-4dc7-9746-ea1f40eb87a6",
-              "port": "8c2fcaba-c7d3-42be-a51f-9147c29f17ab"
-            },
-            "target": {
-              "cell": "97dc6d31-f4e9-40f9-b33b-2fbd6bfd2035",
-              "port": "3ef502fa-58f6-4a89-83f8-dc950c43a6d8"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Permintaan akses",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Permintaan akses"
-            ],
-            "id": "2240a9df-bb82-4caa-a88d-d94688d8312e",
-            "source": {
-              "cell": "97dc6d31-f4e9-40f9-b33b-2fbd6bfd2035",
-              "port": "01ca52b2-28bf-4b3e-901b-f62693beba7e"
-            },
-            "target": {
-              "cell": "f0690a91-021e-43a6-bd65-e107aead6cfe",
-              "port": "d738ddbc-1e15-4470-b8c9-c0a48b8f11ef"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
               "name": "Tautan berbagi sementara",
               "description": "",
               "outOfScope": false,
@@ -1510,66 +1416,6 @@
               "cell": "f0690a91-021e-43a6-bd65-e107aead6cfe",
               "port": "409b3ae8-bd19-4b88-8f94-8148459a19b6"
             },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead",
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            },
             "vertices": [
               {
                 "x": -1520,
@@ -1578,125 +1424,51 @@
             ]
           },
           {
-            "position": {
-              "x": -1600,
-              "y": 950
-            },
-            "size": {
-              "width": 120,
-              "height": 60
-            },
+            "shape": "flow",
             "attrs": {
-              "topLine": {
-                "strokeWidth": 1.5,
-                "strokeDasharray": null
-              },
-              "bottomLine": {
-                "strokeWidth": 1.5,
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
                 "strokeDasharray": null
               }
             },
-            "visible": true,
-            "shape": "store",
-            "zIndex": 11,
-            "ports": {
-              "groups": {
-                "top": {
-                  "position": "top",
-                  "attrs": {
-                    "circle": {
-                      "r": 4,
-                      "magnet": true,
-                      "stroke": "#5F95FF",
-                      "strokeWidth": 1,
-                      "fill": "#fff",
-                      "style": {
-                        "visibility": "hidden"
-                      }
-                    }
-                  }
-                },
-                "right": {
-                  "position": "right",
-                  "attrs": {
-                    "circle": {
-                      "r": 4,
-                      "magnet": true,
-                      "stroke": "#5F95FF",
-                      "strokeWidth": 1,
-                      "fill": "#fff",
-                      "style": {
-                        "visibility": "hidden"
-                      }
-                    }
-                  }
-                },
-                "bottom": {
-                  "position": "bottom",
-                  "attrs": {
-                    "circle": {
-                      "r": 4,
-                      "magnet": true,
-                      "stroke": "#5F95FF",
-                      "strokeWidth": 1,
-                      "fill": "#fff",
-                      "style": {
-                        "visibility": "hidden"
-                      }
-                    }
-                  }
-                },
-                "left": {
-                  "position": "left",
-                  "attrs": {
-                    "circle": {
-                      "r": 4,
-                      "magnet": true,
-                      "stroke": "#5F95FF",
-                      "strokeWidth": 1,
-                      "fill": "#fff",
-                      "style": {
-                        "visibility": "hidden"
-                      }
-                    }
-                  }
-                }
-              },
-              "items": [
-                {
-                  "group": "top",
-                  "id": "d5eed1c3-8a03-41da-b6b4-54c38f01848a"
-                },
-                {
-                  "group": "right",
-                  "id": "0ed8080f-b9af-489d-8ead-56afe2a6f885"
-                },
-                {
-                  "group": "bottom",
-                  "id": "7bad33ad-0541-4783-99e6-63b6a7749fa7"
-                },
-                {
-                  "group": "left",
-                  "id": "407f5d16-e003-4bf4-8d0c-19efd0c05166"
-                }
-              ]
-            },
-            "id": "6b1a1eca-89b8-4aa0-9744-3bbbb48c40c9",
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
             "data": {
-              "type": "tm.Store",
-              "name": "Store",
+              "type": "tm.Flow",
+              "name": "Permintaan akses dokumen dan token",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
-              "isALog": false,
+              "isBidirectional": false,
               "isEncrypted": false,
-              "isSigned": false,
-              "storesCredentials": false,
-              "storesInventory": false,
-              "threats": []
-            }
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": []
+            },
+            "labels": [
+              "Permintaan akses dokumen dan token"
+            ],
+            "id": "dac57d43-f312-4409-aaa4-7464993e0fa0",
+            "source": {
+              "cell": "97dc6d31-f4e9-40f9-b33b-2fbd6bfd2035",
+              "port": "01ca52b2-28bf-4b3e-901b-f62693beba7e"
+            },
+            "target": {
+              "cell": "f0690a91-021e-43a6-bd65-e107aead6cfe",
+              "port": "d738ddbc-1e15-4470-b8c9-c0a48b8f11ef"
+            },
+            "vertices": []
           }
         ]
       }
