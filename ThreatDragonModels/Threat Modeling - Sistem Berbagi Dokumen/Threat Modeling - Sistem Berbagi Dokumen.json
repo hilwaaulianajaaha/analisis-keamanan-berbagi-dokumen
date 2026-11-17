@@ -1,0 +1,28 @@
+{
+  "version": "2.6.2",
+  "release_version": "1.0",
+  "released_at": "2026-11-17",
+  "summary": {
+    "title": "Threat Modeling - Sistem Berbagi Dokumen",
+    "owner": "Hilwa Aulia Najaaha",
+    "description": "Sistem berbagi dokumen memungkinkan pemilik mengunggah file dan membagikannya kepada penerima eksternal melalui tautan sementara yang berlaku selama 24 jam. Pemilik dapat mencabut tautan sebelum masa berlakunya berakhi",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "id": 2,
+        "title": "New STRIDE diagram",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.6.2",
+        "cells": []
+      }
+    ],
+    "diagramTop": 3,
+    "reviewer": "Dosen",
+    "threatTop": 0
+  }
+}
